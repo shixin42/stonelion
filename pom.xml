@@ -16,6 +16,11 @@
 
     <dependencies>
         <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>1.2.16</version>
+        </dependency>
+        <dependency>
             <groupId>org.apache.hadoop.zookeeper</groupId>
             <artifactId>zookeeper</artifactId>
             <version>3.3.3</version>
@@ -215,7 +220,7 @@
                     <archive>
                         <manifest>
                             <addClasspath>true</addClasspath>
-                            <mainClass>com.xiaomi.stonelion.miliao.NearbyPOIWorker</mainClass>
+                            <mainClass>com.stonelion.miliao.NearbyPOIWorker</mainClass>
                             <classpathPrefix>lib/</classpathPrefix>
                         </manifest>
                         <manifestEntries>
