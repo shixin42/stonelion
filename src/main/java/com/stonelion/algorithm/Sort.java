@@ -34,6 +34,7 @@ public class Sort {
 
     public static int[] bubbleSortDesc(int[] array) {
         System.out.println("冒泡desc:");
+
         if (array == null) {
             return array;
         }
@@ -51,6 +52,7 @@ public class Sort {
 
     public static int[] selectSortAsc(int[] array) {
         System.out.println("选择排序asc:");
+
         if (array == null) {
             return array;
         }
@@ -75,6 +77,7 @@ public class Sort {
 
     public static int[] selectSortDesc(int[] array) {
         System.out.println("选择排序desc:");
+
         if (array == null) {
             return array;
         }
@@ -96,14 +99,9 @@ public class Sort {
         return array;
     }
 
-    /**
-     * 插入排序
-     *
-     * @param array
-     * @return
-     */
     public static int[] insertSortAsc(int[] array) {
         System.out.println("插入排序asc:");
+
         if (array == null) {
             return array;
         }
@@ -123,14 +121,9 @@ public class Sort {
         return array;
     }
 
-    /**
-     * 插入排序
-     *
-     * @param array
-     * @return
-     */
     public static int[] insertSortDesc(int[] array) {
         System.out.println("插入排序asc:");
+
         if (array == null) {
             return array;
         }
@@ -150,13 +143,14 @@ public class Sort {
     }
 
     /**
-     * 快速排序, O(nlogn)
+     * 快速排序,升序排序,时间复杂度=O(nlogn)
      *
      * @param array
      * @return
      */
     public static int[] quickSortAsc(int[] array) {
         System.out.println("快速排序asc:");
+
         if (array == null) {
             return array;
         }
@@ -171,16 +165,15 @@ public class Sort {
         }
 
         int key = array[left];
-
         int leftIndex = left;
         int rightIndex = right;
         while (leftIndex < rightIndex) {
-            while (leftIndex < rightIndex && array[rightIndex] > key) {
+            while (leftIndex < rightIndex && array[rightIndex] >= key) {
                 rightIndex--;
             }
             array[leftIndex] = array[rightIndex];
 
-            while (leftIndex < rightIndex && array[leftIndex] < key) {
+            while (leftIndex < rightIndex && array[leftIndex] <= key) {
                 leftIndex++;
             }
             array[rightIndex] = array[leftIndex];
@@ -191,8 +184,15 @@ public class Sort {
         quickSortAsc(array, leftIndex + 1, right);
     }
 
+    /**
+     * 快速排序,降序排序,时间复杂度=O(nlogn)
+     *
+     * @param array
+     * @return
+     */
     public static int[] quickSortDesc(int[] array) {
         System.out.println("快速排序desc:");
+
         if (array == null) {
             return array;
         }
@@ -211,12 +211,12 @@ public class Sort {
         int leftIndex = left;
         int rightIndex = right;
         while (leftIndex < rightIndex) {
-            while (leftIndex < rightIndex && array[rightIndex] < key) {
+            while (leftIndex < rightIndex && array[rightIndex] <= key) {
                 rightIndex--;
             }
             array[leftIndex] = array[rightIndex];
 
-            while (leftIndex < rightIndex && array[leftIndex] > key) {
+            while (leftIndex < rightIndex && array[leftIndex] >= key) {
                 leftIndex++;
             }
             array[rightIndex] = array[leftIndex];
@@ -228,7 +228,7 @@ public class Sort {
     }
 
     /**
-     * 归并排序
+     * 归并排序, 时间复杂度=O(nlogn)
      *
      * @param array
      * @return
@@ -260,7 +260,6 @@ public class Sort {
         int[] temp = new int[array.length];
 
         int tempIndex = left;
-
         int leftIndex = left;
         int rightIndex = center + 1;
 
@@ -285,12 +284,6 @@ public class Sort {
         }
     }
 
-    /**
-     * 归并排序
-     *
-     * @param array
-     * @return
-     */
     public static int[] mergeSortDesc(int[] array) {
         System.out.println("归并排序desc:");
         if (array == null) {
@@ -356,7 +349,6 @@ public class Sort {
         if (index1 == index2) {
             return;
         }
-
         int temp = array[index1];
         array[index1] = array[index2];
         array[index2] = temp;
@@ -381,5 +373,9 @@ public class Sort {
         System.out.println(Arrays.toString(mergeSortDesc(Arrays.copyOf(array, array.length))));
 
         System.out.println(Arrays.toString(shuffleSort(Arrays.copyOf(array, array.length))));
+
+        final int[] array2 = new int[] {1, 1, 1, 1, 1};
+        // 验证快速排序,当数组内所有待排序值相等时,不会死循环
+        System.out.println(Arrays.toString(quickSortAsc(array2)));
     }
 }

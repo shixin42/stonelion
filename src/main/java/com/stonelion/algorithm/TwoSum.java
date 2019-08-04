@@ -24,7 +24,6 @@ public class TwoSum {
         for (int i = 0; i < array.length; i++) {
             set.add(array[i]);
         }
-
         for (int i = 0; i < array.length; i++) {
             if (set.contains(sum - array[i])) {
                 System.out.println(String.format("找到:%d, %d", array[i], sum - array[i]));

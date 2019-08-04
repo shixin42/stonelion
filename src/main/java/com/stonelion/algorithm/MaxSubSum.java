@@ -78,7 +78,7 @@ public class MaxSubSum {
         int currentSum = 0;
 
         for (int i = 0; i < array.length; i++) {
-            if (currentSum + array[i] >= array[i]) { // 如果当前元素加入到签前面的序列中不小于当前元素, 说明是个递增的序列
+            if (currentSum + array[i] >= array[i]) { // 如果当前元素加入到前面的序列中不小于当前元素, 说明是个递增的序列
                 currentSum = currentSum + array[i];
                 if (currentSum > maxSum) {
                     maxSum = currentSum;
